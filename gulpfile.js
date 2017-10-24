@@ -8,10 +8,16 @@ var babel = require('babelify');
 var connect = require('gulp-connect');
 
 function compile(watch) {
-  var bundler = watchify(browserify('./src/js/app.js', { debug: true }).transform(babel.configure( {
-    presets: ["es2015"]
-  })));
-
+  var bundler = null;
+  if(watch) {
+    bundler = watchify(browserify('./src/js/app.js', { debug: true }).transform(babel.configure( {
+                presets: ["es2015"]
+              })));
+  } else {
+    bundler = browserify('./src/js/app.js', { debug: true }).transform(babel.configure( {
+                presets: ["es2015"]
+              }));
+  }
   function rebundle() {
     bundler.bundle()
       .on('error', function(err) { console.error(err); this.emit('end'); })
@@ -22,13 +28,11 @@ function compile(watch) {
       .pipe(gulp.dest('./build'))
       .pipe(connect.reload());
   }
-
   if (watch) {
     bundler.on('update', function() {
       rebundle();
     });
   }
-
   rebundle();
 }
 
@@ -44,6 +48,7 @@ gulp.task('webserver', function() {
 
 function watchStatic() {
   return gulp.watch('./src/static/**/*', function(obj){
+    console.log(obj.type);
     if( obj.type === 'changed') {
       gulp.src( obj.path, { "base": "./src/static/"})
       .pipe(gulp.dest('./build'));
@@ -51,7 +56,11 @@ function watchStatic() {
   });
 }
 
-gulp.task('build', function() { return compile(); });
+gulp.task('build', function() {
+  gulp.src(['src/static/**'])
+  .pipe(gulp.dest('build'));
+  compile(false);
+});
 gulp.task('watch', function() { return watch(); });
 gulp.task('buildChange', function() {
     gulp.watch('./build/**/*', ['watch']);
