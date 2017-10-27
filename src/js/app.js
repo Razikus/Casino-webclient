@@ -1,3 +1,6 @@
-import { init } from './webSocket';
+import { socketConfiguration } from './config/socketConfig';
+import { Controller } from './controllers/Controller';
 
-init();
+export const globals = {
+  constroller: new Controller(socketConfiguration, {}),
+}
