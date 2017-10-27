@@ -1,4 +1,4 @@
-import { SocketHandler } from '../communication/socketHandler';
+import { SocketHandler } from '../communication/SocketHandler';
 
 export class Controller {
   constructor(config, msg) {
