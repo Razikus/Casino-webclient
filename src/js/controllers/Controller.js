@@ -1,25 +1,28 @@
 import { SocketHandler } from '../communication/SocketHandler';
 import { MessageController } from './MessageController';
+import { info, warn } from '../logger/logger';
 
 export class Controller {
   constructor(config, msg) {
     this.messageController = new MessageController();
-    this.socket = new SocketHandler(this.onOpen, messageController.recognizeMessage, this.onClose, this.onError, config);
-    this.socket.initConnection();
+    this.socketConfig = config;
+    this.msg = msg;
     this.connected = false;
+    this.socketHandler = new SocketHandler(this, config);
+    this.socketHandler.initConnection();
   }
 
+  // Delegated to WebSocket object- dont use this, have to use - this.controller
   onOpen(event) {
-    this.connected = true;
-    console.log("Connected to server");
+    info(`Connected to server ${this.controller.socketConfig.url}`);
   }
-
+  // Delegated to WebSocket object- dont use this, have to use - this.controller
   onClose(event) {
-    this.false = true;
+    warn("Server closed connection.")
   }
-
+  // Delegated to WebSocket object- dont use this, have to use - this.controller
   onError(event) {
-    this.false = true;
+    warn("Something wrong with connection.")
   }
 
 

@@ -1,11 +1,12 @@
 
 export class SocketHandler {
-  constructor(onOpen, onClose, onMessage, onError, config) {
+  constructor(controller, config) {
     this.config = config;
-    this.onOpen = onOpen;
-    this.onClose = onClose;
-    this.onMessage = onMessage;
-    this.onError = onError;
+    this.onOpen = controller.onOpen;
+    this.onClose = controller.onClose;
+    this.onMessage = controller.onMessage;
+    this.onError = controller.onError;
+    this.controller = controller;
   }
 
   initConnection() {
@@ -14,6 +15,7 @@ export class SocketHandler {
     this._webSocket.onopen = this.onOpen;
     this._webSocket.onclose = this.onClose;
     this._webSocket.onerror = this.onError;
+    this._webSocket.controller = this.controller;
   }
 
   send(what) {
