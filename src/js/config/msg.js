@@ -39,7 +39,6 @@ export function getMessageBundle(code) {
 function getBundleFor(code) {
   switch(code) {
     case "en":
-      console.log(require("./msg/msg-en.js"))
       return require("./msg/msg-en.js");
     case "pl":
       return require("./msg/msg-pl.js");
