@@ -4,7 +4,7 @@ export class SocketHandler {
     this.config = config;
     this.onOpen = controller.onOpen;
     this.onClose = controller.onClose;
-    this.onMessage = controller.onMessage;
+    this.onMessage = controller.messageController.onMessage;
     this.onError = controller.onError;
     this.controller = controller;
   }

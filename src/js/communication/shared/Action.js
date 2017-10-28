@@ -1,0 +1,42 @@
+export const actionTypes = {
+  register: "REGISTER",
+  login: "LOGIN",
+  activate: "ACCOUNTACTIVATION",
+}
+
+export class Action {
+  constructor(type) {
+    this.type = type;
+  }
+}
+
+export class RegisterAction extends Action {
+  constructor(login, password, email) {
+    super(actionTypes.register);
+    this.registerDivisor = {
+      login: login,
+      password: password,
+      email: email
+    }
+  }
+}
+
+export class LoginAction extends Action {
+  constructor(login, password) {
+    super(actionTypes.login);
+    this.loginDivisor = {
+      login: login,
+      password: password,
+    }
+  }
+}
+
+export class ActivateAction extends Action {
+  constructor(token, nickname) {
+    super(actionTypes.activate);
+    this.activateDivisor = {
+      token: token,
+      nickname: nickname,
+    }
+  }
+}

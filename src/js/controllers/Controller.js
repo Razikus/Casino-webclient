@@ -1,4 +1,5 @@
 import { SocketHandler } from '../communication/SocketHandler';
+import { CommunicationService } from '../communication/CommunicationService';
 import { MessageController } from './MessageController';
 import { MessageService } from '../config/msg';
 import { info, warn } from '../logger/logger';
@@ -6,19 +7,23 @@ import { makDefaultInfoToast } from '../views/utils/toaster';
 
 export class Controller {
   constructor(config, languageCode, optionalGetParameters) {
-    this.messageController = new MessageController();
+    this.messageController = new MessageController(this);
     this.messageService = new MessageService(languageCode);
     this.socketConfig = config;
     this.connected = ko.observable(false);
     this.socketHandler = new SocketHandler(this, config);
     this.socketHandler.initConnection();
-    if(optionalGetParameters) {
-      this.processGetParameters(optionalGetParameters);
-    }
+
+
+    this.communicationService = new CommunicationService(this.socketHandler, this);
 
     this.subscribe("connected", (value) => {
       if(value) {
         makDefaultInfoToast(this.msg("connected"), this.msg("connected-text"));
+        this.communicationService.tryRegister("Razikus", "adam4541", "adam.razniewski@gmail.com");
+        if(optionalGetParameters) {
+          this.processGetParameters(optionalGetParameters);
+        }
       }
     });
   }
@@ -54,8 +59,9 @@ export class Controller {
   }
 
   processGetParameters(optionalGetParameters) {
-    console.log(optionalGetParameters);
-    warn("Not implemented yet :(");
+    if(optionalGetParameters.token != undefined && optionalGetParameters.nickname != undefined) {
+      this.communicationService.tryActivate(optionalGetParameters);
+    }
   }
 
 
