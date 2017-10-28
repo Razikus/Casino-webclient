@@ -1,8 +1,10 @@
 import { Response } from '../communication/shared/Response';
+import { makeDefaultToast } from '../views/utils/toaster';
 
 export class MessageController {
-  constructor(controller) {
+  constructor(controller, messageService) {
     this.controller = controller;
+    this.messageService = messageService;
   }
 
   onMessage(event) {
@@ -24,8 +26,11 @@ export class MessageController {
 
   recognizeClass(object) {
     if(object.className === 'Response') {
-      let response = new Response(object.type, object.description, object.notifyType, object.args);
-      console.log(response);
+      let response = new Response(object.type, object.description, object.notifyType, object.notifyState, object.args);
+
+      if(response.notifyType == "TOAST") {
+        makeDefaultToast(this.messageService.msg(response.notifyState), this.messageService.msg(response.description), response.notifyState.toLowerCase());
+      }
     }
   }
 }

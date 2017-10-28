@@ -7,8 +7,8 @@ import { makDefaultInfoToast } from '../views/utils/toaster';
 
 export class Controller {
   constructor(config, languageCode, optionalGetParameters) {
-    this.messageController = new MessageController(this);
     this.messageService = new MessageService(languageCode);
+    this.messageController = new MessageController(this, this.messageService);
     this.socketConfig = config;
     this.connected = ko.observable(false);
     this.socketHandler = new SocketHandler(this, config);
