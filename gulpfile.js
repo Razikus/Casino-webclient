@@ -42,7 +42,8 @@ function watch() {
 
 gulp.task('webserver', function() {
   connect.server({
-    livereload: true
+    livereload: true,
+    port: 7171,
   });
 });
 
