@@ -5,8 +5,13 @@ export function getMessageBundle(code) {
   info(`Loading msg bundle: ${code}`);
   let bundle = getBundleFor(constructBundlePath(code));
   if(!bundle) {
-    warn(`No msg bundle for code: ${code} loading default: ${msgConfig.defaultLanguage}`);
-    return getBundleFor(constructBundlePath(msgConfig.defaultLanguage));
+    warn(`No msg bundle for code: ${code} loading default bundle for language: ${msgConfig.defaultLanguage}`);
+    bundle = getBundleFor(constructBundlePath(msgConfig.defaultLanguage));
+    if(bundle) {
+      return bundle;
+    } else {
+      throw "No default bundle. Check configuration, and files. Aborting";
+    }
   }
   return bundle;
 }
