@@ -1,3 +1,3 @@
 export const msgConfig = {
-  defaultLanguage: 'en',
+  defaultLanguage: './msg/msg-en.js',
 }
