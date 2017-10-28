@@ -14,7 +14,7 @@ export class MessageService {
     let result = this.bundle.msg[label];
     if(result) {
       return result;
-    } else if(this.defaultBundle != undefined && this.defaultBundle[label]) {
+    } else if(this.defaultBundle != undefined && this.defaultBundle.msg[label]) {
       return this.defaultBundle.msg[label];
     } else {
       return `[${label}]`;

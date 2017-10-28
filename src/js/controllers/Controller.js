@@ -2,15 +2,25 @@ import { SocketHandler } from '../communication/SocketHandler';
 import { MessageController } from './MessageController';
 import { MessageService } from '../config/msg';
 import { info, warn } from '../logger/logger';
+import { makDefaultInfoToast } from '../views/utils/toaster';
 
 export class Controller {
-  constructor(config, languageCode) {
+  constructor(config, languageCode, optionalGetParameters) {
     this.messageController = new MessageController();
     this.messageService = new MessageService(languageCode);
     this.socketConfig = config;
     this.connected = ko.observable(false);
     this.socketHandler = new SocketHandler(this, config);
     this.socketHandler.initConnection();
+    if(optionalGetParameters) {
+      this.processGetParameters(optionalGetParameters);
+    }
+
+    this.subscribe("connected", (value) => {
+      if(value) {
+        makDefaultInfoToast(this.msg("connected"), this.msg("connected-text"));
+      }
+    });
   }
 
   // Delegated to WebSocket object- dont use this, have to use - this.controller
@@ -43,6 +53,10 @@ export class Controller {
     return this.messageService.msg(label);
   }
 
+  processGetParameters(optionalGetParameters) {
+    console.log(optionalGetParameters);
+    warn("Not implemented yet :(");
+  }
 
 
 }
