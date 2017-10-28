@@ -20,12 +20,18 @@ export class Controller {
     this.subscribe("connected", (value) => {
       if(value) {
         makDefaultInfoToast(this.msg("connected"), this.msg("connected-text"));
-        this.communicationService.tryRegister("Razikus", "adam4541", "adam.razniewski@gmail.com");
         if(optionalGetParameters) {
           this.processGetParameters(optionalGetParameters);
         }
       }
     });
+
+    this.userName = ko.observable("");
+    this.password = ko.observable("");
+    this.email = ko.observable("");
+    this.register = function() {
+      this.communicationService.tryRegister(this.userName(), this.password(), this.email());
+    }
   }
 
   // Delegated to WebSocket object- dont use this, have to use - this.controller
