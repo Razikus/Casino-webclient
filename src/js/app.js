@@ -17,4 +17,5 @@ function getParameters() {
 }
 
 
+
 ko.applyBindings(globals.controller);

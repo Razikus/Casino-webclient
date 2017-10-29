@@ -41,12 +41,3 @@ export class ActivateAction extends Action {
     }
   }
 }
-
-export class WalletAction extends Action {
-  constructor(login) {
-    super(actionTypes.walletIncrease);
-    this.args = {
-      login: login,
-    }
-  }
-}
