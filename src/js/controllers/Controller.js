@@ -32,6 +32,9 @@ export class Controller {
     this.register = function() {
       this.communicationService.tryRegister(this.userName(), this.password(), this.email());
     }
+    this.wallet = function() {
+      this.communicationService.tryWalletIncrease(this.userName());
+    }
   }
 
   // Delegated to WebSocket object- dont use this, have to use - this.controller

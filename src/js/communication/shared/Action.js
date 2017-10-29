@@ -2,6 +2,7 @@ export const actionTypes = {
   register: "REGISTER",
   login: "LOGIN",
   activate: "ACCOUNTACTIVATION",
+  walletIncrease: "WALLETINCREASE",
 }
 
 export class Action {
@@ -37,6 +38,15 @@ export class ActivateAction extends Action {
     this.args = {
       token: token,
       nickname: nickname,
+    }
+  }
+}
+
+export class WalletAction extends Action {
+  constructor(login) {
+    super(actionTypes.walletIncrease);
+    this.args = {
+      login: login,
     }
   }
 }

@@ -1,4 +1,4 @@
-import { Action, LoginAction, RegisterAction, ActivateAction } from './shared/Action';
+import { Action, LoginAction, RegisterAction, ActivateAction, WalletAction } from './shared/Action';
 
 export class CommunicationService {
   constructor(socketHandler, controller) {
@@ -16,6 +16,10 @@ export class CommunicationService {
 
   tryLogin(nick, password) {
     this.send(JSON.stringify(new LoginAction(nick, password)));
+  }
+
+  tryWalletIncrease(nick) {
+    this.send(JSON.stringify(new WalletAction(nick));
   }
 
   tryActivate(GETParameters) {
