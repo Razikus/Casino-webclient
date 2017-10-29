@@ -19,7 +19,7 @@ export class CommunicationService {
   }
 
   tryWalletIncrease(nick) {
-    this.send(JSON.stringify(new WalletAction(nick));
+    this.send(JSON.stringify(new WalletAction(nick)));
   }
 
   tryActivate(GETParameters) {
