@@ -13,7 +13,7 @@ export class Action {
 export class RegisterAction extends Action {
   constructor(login, password, email) {
     super(actionTypes.register);
-    this.registerDivisor = {
+    this.args = {
       login: login,
       password: password,
       email: email
@@ -24,7 +24,7 @@ export class RegisterAction extends Action {
 export class LoginAction extends Action {
   constructor(login, password) {
     super(actionTypes.login);
-    this.loginDivisor = {
+    this.args = {
       login: login,
       password: password,
     }
@@ -34,7 +34,7 @@ export class LoginAction extends Action {
 export class ActivateAction extends Action {
   constructor(token, nickname) {
     super(actionTypes.activate);
-    this.activateDivisor = {
+    this.args = {
       token: token,
       nickname: nickname,
     }
