@@ -1,3 +1,3 @@
 export const socketConfiguration = {
-  url: "ws://localhost:8080/CasinoServer/casino",
+  url: "ws://approxteam.com:8080/CasinoServer/casino",
 }
