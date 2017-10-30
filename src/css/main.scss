@@ -1,0 +1,77 @@
+$font-stack:    Calibri, sans-serif;
+
+$color-text: #FFFFFF;
+
+$color-primary-0: #394886;	// Main Primary color */
+$color-primary-1: #8691BF;
+$color-primary-2: #5866A0;
+$color-primary-3: #243471;
+$color-primary-4: #101D56;
+
+$color-secondary-1-0: #92327A;	// Main Secondary color (1) */
+$color-secondary-1-1: #CB85B9;
+$color-secondary-1-2: #AD5597;
+$color-secondary-1-3: #7B1C63;
+$color-secondary-1-4: #5D0747;
+
+$color-secondary-2-0: #9EBC41;	// Main Secondary color (2) */
+$color-secondary-2-1: #E1F5A1;
+$color-secondary-2-2: #C3DF6D;
+$color-secondary-2-3: #809E24;
+$color-secondary-2-4: #5D7808;
+
+$color-complement-0: #C59F44;	// Main Complement color */
+$color-complement-1: #FFE5A8;
+$color-complement-2: #EBC773;
+$color-complement-3: #A78026;
+$color-complement-4: #7E5B09;
+
+body {
+  font: 100% $font-stack;
+  background-color: $color-primary-0;
+  color: $color-text;
+}
+
+#footerStatus {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    border-style: solid;
+    font-size: 15px;
+    background-color: $color-primary-1;
+    color: #000000;
+    border-color: #000000;
+}
+
+#leftMenu {
+  float: left;
+  width: 15%;
+  height: 100%;
+  background-color: $color-secondary-1-0;
+}
+
+#game {
+    width: 100%;
+    height: 100%;
+    background-color: $color-secondary-2-0;
+}
+
+.success {
+  color: darkgreen;
+}
+
+.error {
+  color: red;
+}
+
+.footerStatusRow {
+  padding: 5px 5px 5px 30px;
+}
+
+.footerStatusRowRight {
+  padding: 2px 10px 5px 0px;
+  float: right;
+}

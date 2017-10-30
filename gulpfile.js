@@ -6,6 +6,7 @@ var browserify = require('browserify');
 var watchify = require('watchify');
 var babel = require('babelify');
 var connect = require('gulp-connect');
+var sass = require('gulp-sass');
 
 function compile(watch) {
   var bundler = null;
@@ -52,7 +53,8 @@ function watchStatic() {
     console.log(obj.type);
     if( obj.type === 'changed') {
       gulp.src( obj.path, { "base": "./src/static/"})
-      .pipe(gulp.dest('./build'));
+      .pipe(gulp.dest('./build'))
+      .pipe(connect.reload());
     }
   });
 }
@@ -61,14 +63,30 @@ gulp.task('build', function() {
   gulp.src(['src/static/**'])
   .pipe(gulp.dest('build'));
   compile(false);
+  compileSass();
 });
 gulp.task('watch', function() { return watch(); });
 gulp.task('buildChange', function() {
     gulp.watch('./build/**/*', ['watch']);
 });
 
+function compileSass() {
+  return gulp.src('src/css/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./build/css/'))
+    .pipe(connect.reload());
+}
+
+gulp.task('sass', function () {
+  compileSass();
+});
+
+gulp.task('sass:watch', function () {
+  gulp.watch('src/css/**/*.scss', ['sass']);
+});
+
 gulp.task('staticChange', function() {
   return watchStatic();
 });
 
-gulp.task('default', ['watch', 'webserver', 'staticChange']);
+gulp.task('default', ['watch', 'webserver', 'staticChange', 'sass:watch']);

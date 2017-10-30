@@ -6,3 +6,4 @@ npm install gulp-sourcemaps vinyl-source-stream vinyl-buffer browserify watchify
 npm install gulp -D
 npm install --save-dev gulp-babel
 npm install --save-dev gulp-connect
+npm install --save-dev gulp-sass

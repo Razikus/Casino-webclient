@@ -16,6 +16,9 @@ export class Controller {
     this.socketHandler = new SocketHandler(this, config);
     this.socketHandler.initConnection();
 
+    this.connectionStatusClass = ko.pureComputed(function() {
+      return this.connected() ? "fa fa-check-circle-o success" : 'fa fa-times-circle-o error';
+    }, this);
 
     this.communicationService = new CommunicationService(this.socketHandler, this);
 
