@@ -71,4 +71,4 @@ gulp.task('staticChange', function() {
   return watchStatic();
 });
 
-gulp.task('default', ['watch', 'webserver', 'buildChange', 'staticChange']);
+gulp.task('default', ['watch', 'webserver', 'staticChange']);

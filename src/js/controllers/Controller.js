@@ -4,10 +4,12 @@ import { MessageController } from './MessageController';
 import { MessageService } from '../config/msg';
 import { info, warn } from '../logger/logger';
 import { makDefaultInfoToast } from '../views/utils/toaster';
+import { DevService } from '../dev/DevService';
 
 export class Controller {
   constructor(config, languageCode, optionalGetParameters) {
     this.messageService = new MessageService(languageCode);
+    this.devService = new DevService(this);
     this.messageController = new MessageController(this, this.messageService);
     this.socketConfig = config;
     this.connected = ko.observable(false);
@@ -26,13 +28,6 @@ export class Controller {
       }
     });
 
-    this.userName = ko.observable("");
-    this.password = ko.observable("");
-    this.email = ko.observable("");
-    this.register = function() {
-      this.communicationService.tryRegister(this.userName(), this.password(), this.email());
-    }
-    
   }
 
   // Delegated to WebSocket object- dont use this, have to use - this.controller
