@@ -1,10 +1,33 @@
 <html>
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+  <script src="https://use.fontawesome.com/bad2bc9288.js"></script>
+  <head>
+    <meta charset="UTF-8">
+  </head>
 
+  <div class="allWidthBlock">
+    <div id="upperMenu"></div>
+    <div id="game"></div>
+  </div>
 
-<head>
-  Casino webClient
-</head>
+  <div id="footerStatus">
+    <span class="footerStatusRow">
+      <span data-bind="text: msg('connection')"></span>: <span data-bind="css: connectionStatusClass"></span>
+    </span>
+    <span class="footerStatusRow">
+      <span class="fa fa-money" data-bind="attr: { title: msg('avalaibleCoinsTitle') }"></span>:<span data-bind="attr: { title: msg('avalaibleCoinsTitle') }">Not implemented yet</span>
+    </span>
+    <span class="footerStatusRow">
+        <span class="fa fa-shopping-basket" data-bind="attr: { title: msg('basketGameBank') }"></span>:<span data-bind="attr: { title: msg('basketGameBank') }">Not implemented yet</span>
+    </span>
+    <span class="footerStatusRowRight">
+      <span class="fa fa-users" data-bind="attr: { title: msg('onlinePlayers') }"></span>:<span data-bind="attr: { title: msg('onlinePlayers') }">Not implemented yet</span>
+    </span>
+  </div>
 
-
-<script type='text/javascript' src='./build.js'></script>
+  <script type='text/javascript' src='./lib/jquery-3.2.1.min.js'></script>
+  <script type='text/javascript' src='./lib/knockout-3.4.2.js'></script>
+  <script type='text/javascript' src='./lib/jquery-toast/jquery.toast.min.js'></script>
+  <link rel="stylesheet" type="text/css" href="./lib/jquery-toast/jquery.toast.min.css">
+  <script type='text/javascript' src='./build.js'></script>
 </html>

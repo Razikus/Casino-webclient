@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    CONNECTED: <span data-bind="text: connected"></span>
+  </head>
+
+  <select data-bind="options: devService.actions, optionsText: 'type', value: devService.devAction"></select>
+
+
+  <p>ActionType: <input data-bind="value: devService.devAction().type"></input></p>
+    <ul>
+      <!-- ko foreach: {data: devService.devArgs} -->
+      <li><span data-bind="text: $data"></span>: <input data-bind="value: $parent.devService.devValueFor($data)"></input><button data-bind="click: function() { $parent.devService.removeArg($data) }">Remove</button></li>
+      <!-- /ko -->
+  </ul>
+
+  <button data-bind="click: devService.addArg">Add arg</button><input data-bind="value: devService.argName"></input><input data-bind="value: devService.argValue"></input>
+
+
+  <p>ActionJSON: <span data-bind="text: devService.devJson"></span></p>
+
+  <button data-bind="click: devService.devSend">SEND</button>
+
+
+
+
+  <script type='text/javascript' src='./lib/jquery-3.2.1.min.js'></script>
+  <script type='text/javascript' src='./lib/knockout-3.4.2.js'></script>
+  <script type='text/javascript' src='./lib/jquery-toast/jquery.toast.min.js'></script>
+  <link rel="stylesheet" type="text/css" href="./lib/jquery-toast/jquery.toast.min.css">
+  <script type='text/javascript' src='./build.js'></script>
+
+</html>
