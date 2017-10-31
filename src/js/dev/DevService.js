@@ -35,13 +35,20 @@ export class DevService {
       delete current[index];
       self.devAction().args(current);
     }
+    let randomString = this.randomString(8);
 
     this.actions = [
-      { type: ko.observable("REGISTER"), args: ko.observable({ login: ko.observable(""), password: ko.observable(""), email: ko.observable("")})},
-      { type: ko.observable("LOGIN"), args: ko.observable({ login: ko.observable(""), password: ko.observable("")})},
-      { type: ko.observable("ACCOUNTACTIVATION"), args: ko.observable({ token: ko.observable(""), nickname: ko.observable("")})},
+      { type: ko.observable("REGISTER"), args: ko.observable({ login: ko.observable(randomString), password: ko.observable(randomString), email: ko.observable("")})},
+      { type: ko.observable("LOGIN"), args: ko.observable({ login: ko.observable(randomString), password: ko.observable(randomString)})},
+      { type: ko.observable("ACCOUNTACTIVATION"), args: ko.observable({ token: ko.observable(""), nickname: ko.observable(randomString)})},
+      { type: ko.observable("PASSWORDCHANGEREQUEST"), args: ko.observable({ email: ko.observable(""), newpassword: ko.observable(this.randomString(5))})},
+      { type: ko.observable("PASSWORDCHANGE"), args: ko.observable({ email: ko.observable(""), token: ko.observable("")})},
       { type: ko.observable("MYOWN"), args: ko.observable({ })},
 
     ]
+  }
+
+  randomString(length) {
+    return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, length);
   }
 }
