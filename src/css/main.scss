@@ -20,15 +20,36 @@ $color-secondary-2-2: #33746F;
 $color-secondary-2-3: #063632;
 $color-secondary-2-4: #001C1A;
 
-$color-complement-0: darken(#3E1D65, 14);	// Main Complement color */
-$color-complement-1: darken(#796292, 14);
-$color-complement-2: darken(#5D3E80, 14);
-$color-complement-3: darken(#210B3B, 14);
-$color-complement-4: darken(#10031F, 14);
+$color-complement-0: #1c0d2e;	// Main Complement color */
+$color-complement-1: #564567;
+$color-complement-2: #3a2750;
+$color-complement-3: #090310;
+$color-complement-4: #06010c;
+
+$border-color: #d9cdc1;
+
+$appWidth: 70%;
+
+@mixin gradientTopDown($colorFrom, $colorTo) {
+  background: $colorFrom;
+  background: -moz-linear-gradient(top, $colorFrom 0%, $colorTo 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, $colorFrom), color-stop(100%, $colorTo));
+  background: -webkit-linear-gradient(top, $colorFrom 0%, $colorTo 100%);
+  background: -o-linear-gradient(top, $colorFrom 0%, $colorTo 100%);
+  background: -ms-linear-gradient(top, $colorFrom 0%, $colorTo 100%);
+  background: linear-gradient(to bottom, $colorFrom 0%, $colorTo 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr = $colorFrom, endColorstr = $colorTo, GradientType=0 );
+}
+
+@mixin rounded($radius: 0.5em) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
 
 body {
   font: 100% $font-stack;
-  background-color: $color-complement-0;
+  background-color: $color-complement-4;
   color: $color-text;
 }
 
@@ -43,35 +64,29 @@ body {
     font-size: 15px;
     background-color: $color-primary-1;
     color: #000000;
-    border-color: #000000;
+    border-color: $color-secondary-2-0;
+    @include rounded;
 }
 
 #upperMenu {
   float: left;
-  width: 70%;
+  width: $appWidth;
   height: 10%;
-  //background-color: $color-complement-1;
   border-style: solid;
   border-bottom: 0px;
-  border-color: #d9cdc1;
+  border-color: $border-color;
   margin: 0 auto;
   box-shadow: 0px 0px 200px 10px $color-primary-0;
-  background: rgba(86,69,103,1);
-  background: -moz-linear-gradient(top, rgba(86,69,103,1) 0%, rgba(58,39,80,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(86,69,103,1)), color-stop(100%, rgba(58,39,80,1)));
-  background: -webkit-linear-gradient(top, rgba(86,69,103,1) 0%, rgba(58,39,80,1) 100%);
-  background: -o-linear-gradient(top, rgba(86,69,103,1) 0%, rgba(58,39,80,1) 100%);
-  background: -ms-linear-gradient(top, rgba(86,69,103,1) 0%, rgba(58,39,80,1) 100%);
-  background: linear-gradient(to bottom, rgba(86,69,103,1) 0%, rgba(58,39,80,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#564567', endColorstr='#3a2750', GradientType=0 );
+  @include gradientTopDown($color-complement-1, $color-complement-2);
+
 }
 
 #game {
-    width: 70%;
+    width: $appWidth;
     height: 90%;
     background-color: $color-complement-2;
     border-style: solid;
-    border-color: #d9cdc1;
+    border-color: $border-color;
     overflow: hidden;
 }
 
