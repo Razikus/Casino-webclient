@@ -50,7 +50,7 @@ $appWidth: 70%;
 body {
   font: 100% $font-stack;
   background-color: $color-complement-4;
-  color: $color-text;
+  color: $color-primary-2;
 }
 
 #footerStatus {
@@ -78,7 +78,50 @@ body {
   margin: 0 auto;
   box-shadow: 0px 0px 200px 10px $color-primary-0;
   @include gradientTopDown($color-complement-1, $color-complement-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+.upperMenuItem {
+  padding-right: 15px;
+  padding-left: 15px;
+  text-align: center;
+
+}
+
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.icon {
+  color: lighten($color-primary-2, 20);
+  @extend .hvr-grow;
+
+}
+
+
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.1);
+}
+
+.icon:hover {
 }
 
 #game {
