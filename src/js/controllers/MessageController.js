@@ -1,5 +1,7 @@
 import { Response } from '../communication/shared/Response';
+import { WebClientAction } from '../communication/shared/WebClientAction';
 import { makeDefaultToast } from '../views/utils/toaster';
+import { warn } from '../logger/logger';
 
 export class MessageController {
   constructor(controller, messageService) {
@@ -21,16 +23,34 @@ export class MessageController {
     let obj = JSON.parse(event.data);
     if(obj.className !== 'undefined') {
       this.recognizeClass(obj);
+    } else {
+      warn("Cannot understand: " + event.data);
     }
   }
 
   recognizeClass(object) {
     if(object.className === 'Response') {
       let response = new Response(object.type, object.description, object.notifyType, object.notifyState, object.args);
-
-      if(response.notifyType == "TOAST") {
-        makeDefaultToast(this.messageService.msg(response.notifyState), this.messageService.msg(response.description), response.notifyState.toLowerCase());
+      recognizeNotifier(response);
+    } else if(object.className === 'WebClientAction') {
+      let action = new WebClientAction(object.type, object.args);
+      this.recognizeAction(action);
+    } else {
+      if(object.className) {
+        warn("Cannot understand: " + object.className);
       }
+    }
+  }
+
+  recognizeNotifier(responseObject) {
+    if(responseObject.notifyType == "TOAST") {
+      makeDefaultToast(this.messageService.msg(responseObject.notifyState), this.messageService.msg(responseObject.description), responseObject.notifyState.toLowerCase());
+    }
+  }
+
+  recognizeAction(action) {
+    if(action.type === "REFRESHUSERS") {
+      this.controller.playersCount(action.args.players);
     }
   }
 }

@@ -20,6 +20,8 @@ export class Controller {
       return this.connected() ? "fa fa-check-circle-o success" : 'fa fa-times-circle-o error';
     }, this);
 
+    this.playersCount = ko.observable(this.msg('REFRESHING'));
+
     this.communicationService = new CommunicationService(this.socketHandler, this);
 
     this.onPaymentsItem = function() {
