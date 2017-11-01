@@ -11,4 +11,5 @@ export const msg = {
   "payments" : "Płatności",
   "basket" : "Koszyczek",
   "gunner" : "Rewolwer",
+  "home" : "Główna",
 }

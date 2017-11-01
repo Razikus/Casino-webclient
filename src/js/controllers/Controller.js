@@ -34,6 +34,9 @@ export class Controller {
     this.onLoginItem = function() {
       alert("Not implemented yet");
     };
+    this.onHomeItem = function() {
+      alert("Not implemented yet");
+    };
 
 
     this.subscribe("connected", (value) => {
