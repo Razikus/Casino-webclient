@@ -12,4 +12,5 @@ export const msg = {
   "basket" : "Koszyczek",
   "gunner" : "Rewolwer",
   "home" : "Główna",
+  'REFRESHING' : 'Odświeżam...',
 }

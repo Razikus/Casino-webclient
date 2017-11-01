@@ -12,4 +12,5 @@ export const msg = {
   "basket" : "Basket game",
   "gunner" : "Gunner",
   "home" : "Home",
+  'REFRESHING' : 'Refreshing...',
 }
