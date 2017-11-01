@@ -2,7 +2,8 @@ export const actionTypes = {
   register: "REGISTER",
   login: "LOGIN",
   activate: "ACCOUNTACTIVATION",
-  walletIncrease: "WALLETINCREASE",
+  passwordChangeRequest: "PASSWORDCHANGEREQUEST",
+  passwordChange: "PASSWORDCHANGE",
 }
 
 export class Action {
@@ -38,6 +39,26 @@ export class ActivateAction extends Action {
     this.args = {
       token: token,
       nickname: nickname,
+    }
+  }
+}
+
+export class PasswordChangeRequestAction extends Action {
+  constructor(email, newPassword) {
+    super(actionTypes.activate);
+    this.args = {
+      email: email,
+      newPassword: newPassword,
+    }
+  }
+}
+
+export class PasswordChangeAction extends Action {
+  constructor(email, token) {
+    super(actionTypes.activate);
+    this.args = {
+      email: email,
+      token: token,
     }
   }
 }
