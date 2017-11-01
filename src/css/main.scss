@@ -53,6 +53,15 @@ body {
   color: $color-primary-2;
 }
 
+.allWidthBlock {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height:100%
+}
+
 #footerStatus {
     position: fixed;
     z-index: 100;
@@ -69,18 +78,25 @@ body {
 }
 
 #upperMenu {
-  float: left;
   width: $appWidth;
   height: 10%;
   border-style: solid;
   border-bottom: 0px;
   border-color: $border-color;
-  margin: 0 auto;
   box-shadow: 0px 0px 200px 10px $color-primary-0;
-  @include gradientTopDown($color-complement-1, $color-complement-2);
   display: flex;
   align-items: center;
   justify-content: center;
+  @include gradientTopDown($color-complement-1, $color-complement-2);
+
+}
+
+#game {
+    width: $appWidth;
+    height: 90%;
+    background-color: $color-complement-2;
+    border-style: solid;
+    border-color: $border-color;
 
 }
 
@@ -122,23 +138,6 @@ body {
 }
 
 .icon:hover {
-}
-
-#game {
-    width: $appWidth;
-    height: 90%;
-    background-color: $color-complement-2;
-    border-style: solid;
-    border-color: $border-color;
-    overflow: hidden;
-}
-
-.allWidthBlock {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
 }
 
 .success {
