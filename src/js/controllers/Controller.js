@@ -22,6 +22,20 @@ export class Controller {
 
     this.communicationService = new CommunicationService(this.socketHandler, this);
 
+    this.onPaymentsItem = function() {
+      alert("Not implemented yet");
+    };
+    this.onGunnerItem = function() {
+      alert("Not implemented yet");
+    };
+    this.onBasketItem = function() {
+      alert("Not implemented yet");
+    };
+    this.onLoginItem = function() {
+      alert("Not implemented yet");
+    };
+
+
     this.subscribe("connected", (value) => {
       if(value) {
         makDefaultInfoToast(this.msg("connected"), this.msg("connected-text"));

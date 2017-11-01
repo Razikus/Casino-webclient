@@ -1,9 +1,11 @@
 import { socketConfiguration } from './config/socketConfig';
 import { Controller } from './controllers/Controller';
 import { getMessageBundle } from './config/msg';
+import { ComponentsRegisterer } from './ComponentsRegisterer';
 
 export const globals = {
   controller: new Controller(socketConfiguration, getLanguageCode(), getParameters()),
+  componentsRegisterer: new ComponentsRegisterer(),
 }
 
 function getLanguageCode() {
@@ -17,5 +19,6 @@ function getParameters() {
 }
 
 
+globals.componentsRegisterer.registerComponents();
 
 ko.applyBindings(globals.controller);

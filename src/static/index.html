@@ -8,25 +8,15 @@
 
   <div class="allWidthBlock">
     <div id="upperMenu">
-      <div class="upperMenuItem">
-        <div class="fa fa-key fa-3x icon" aria-hidden="true"></div>
-        <div>Login</div>
-      </div>
-      <div class="upperMenuItem">
-        <div class="fa fa-money fa-3x icon" aria-hidden="true"></div>
-        <div>Payments</div>
-      </div>
-      <div class="upperMenuItem">
-        <div class="fa fa-shopping-basket fa-3x icon" aria-hidden="true"></div>
-        <div>Basket game</div>
-      </div>
-      <div class="upperMenuItem">
-        <i class="material-icons md-48 icon">face</i>
-        <div>Gunner</div>
-      </div>
+      <awesomebuttonlink params="awesomeClass: 'fa fa-key fa-3x icon', underText: msg('login'), onClick: onLoginItem"></awesomebuttonlink>
+      <awesomebuttonlink params="awesomeClass: 'fa fa-money fa-3x icon', underText: msg('payments'), onClick: onPaymentsItem"></awesomebuttonlink>
+      <awesomebuttonlink params="awesomeClass: 'fa fa-shopping-basket fa-3x icon', underText: msg('basket'), onClick: onBasketItem"></awesomebuttonlink>
+      <awesomebuttonlink params="awesomeClass: 'material-icons md-48 icon', underText: msg('gunner'), onClick: onGunnerItem, materialIcon: 'face'"></awesomebuttonlink>
     </div>
-    <div id="game"></div>
+    <div id="game">
+    </div>
   </div>
+
 
   <div id="footerStatus">
     <span class="footerStatusRow">
