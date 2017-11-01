@@ -7,4 +7,8 @@ export const msg = {
   "avalaibleCoinsTitle" : "Avalaible chips",
   "basketGameBank" : "Sum of bank of the 'Basket' game",
   "onlinePlayers" : "Online players",
+  "account" : "Account",
+  "payments" : "Payments",
+  "basket" : "Basket game",
+  "gunner" : "Gunner",
 }

@@ -7,4 +7,8 @@ export const msg = {
   "avalaibleCoinsTitle" : "Dostępne żetony",
   "basketGameBank" : "Pula nagród w grze 'Basket'",
   "onlinePlayers" : "Grający teraz",
+  "account" : "Konto",
+  "payments" : "Płatności",
+  "basket" : "Koszyczek",
+  "gunner" : "Rewolwer",
 }
