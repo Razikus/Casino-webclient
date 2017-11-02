@@ -31,7 +31,7 @@ export class MessageController {
   recognizeClass(object) {
     if(object.className === 'Response') {
       let response = new Response(object.type, object.description, object.notifyType, object.notifyState, object.args);
-      recognizeNotifier(response);
+      this.recognizeNotifier(response);
     } else if(object.className === 'WebClientAction') {
       let action = new WebClientAction(object.type, object.args);
       this.recognizeAction(action);

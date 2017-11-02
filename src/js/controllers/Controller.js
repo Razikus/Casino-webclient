@@ -83,10 +83,12 @@ export class Controller {
   }
 
   processGetParameters(optionalGetParameters) {
-    if(optionalGetParameters.token != undefined && optionalGetParameters.nickname != undefined) {
-      this.communicationService.tryActivate(optionalGetParameters);
+    if(optionalGetParameters.token != undefined) {
+      if(optionalGetParameters.nickname != undefined) {
+        this.communicationService.tryActivate(optionalGetParameters);
+      } else if(optionalGetParameters.email != undefined) {
+        this.communicationService.tryActivatePassword(optionalGetParameters);
+      }
     }
   }
-
-
 }

@@ -45,7 +45,7 @@ export class ActivateAction extends Action {
 
 export class PasswordChangeRequestAction extends Action {
   constructor(email, newPassword) {
-    super(actionTypes.activate);
+    super(actionTypes.passwordChangeRequest);
     this.args = {
       email: email,
       newPassword: newPassword,
@@ -55,7 +55,7 @@ export class PasswordChangeRequestAction extends Action {
 
 export class PasswordChangeAction extends Action {
   constructor(email, token) {
-    super(actionTypes.activate);
+    super(actionTypes.passwordChange);
     this.args = {
       email: email,
       token: token,
