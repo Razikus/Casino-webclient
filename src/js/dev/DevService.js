@@ -43,6 +43,7 @@ export class DevService {
       { type: ko.observable("ACCOUNTACTIVATION"), args: ko.observable({ token: ko.observable(""), nickname: ko.observable(randomString)})},
       { type: ko.observable("PASSWORDCHANGEREQUEST"), args: ko.observable({ email: ko.observable(""), newPassword: ko.observable(this.randomString(5))})},
       { type: ko.observable("PASSWORDCHANGE"), args: ko.observable({ email: ko.observable(""), token: ko.observable("")})},
+      { type: ko.observable("GUNFIRE"), args: ko.observable({ bid: ko.observable(50)})},
       { type: ko.observable("MYOWN"), args: ko.observable({ })},
 
     ]

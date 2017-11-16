@@ -4,6 +4,7 @@ export const actionTypes = {
   activate: "ACCOUNTACTIVATION",
   passwordChangeRequest: "PASSWORDCHANGEREQUEST",
   passwordChange: "PASSWORDCHANGE",
+  gunfire: "GUNFIRE",
 }
 
 export class Action {
@@ -59,6 +60,15 @@ export class PasswordChangeAction extends Action {
     this.args = {
       email: email,
       token: token,
+    }
+  }
+}
+
+export class GunfireAction extends Action {
+  constructor(bid) {
+    super(actionTypes.gunfire);
+    this.args = {
+      bid: bid,
     }
   }
 }
