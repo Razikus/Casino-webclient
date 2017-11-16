@@ -1,10 +1,11 @@
 export const views = {
-  MAINMENU: "MAINMENU",
-  ACCOUNT: "ACCOUNT",
-  PAYMENTS: "PAYMENTS",
-  BASKET: "BASKET",
-  GUNNER: "GUNNER",
+  MAINMENU: {name: "MAINMENU", canvas: false},
+  ACCOUNT: {name: "ACCOUNT", canvas: false},
+  PAYMENTS: {name: "PAYMENTS", canvas: false},
+  BASKET: {name: "BASKET", canvas: true},
+  GUNNER: {name: "GUNNER", canvas: true},
 }
+
 
 
 export class ViewController {

@@ -10,12 +10,12 @@
     <div id="upperMenu">
       <awesomebuttonlink params="awesomeClass: 'fa fa-home fa-3x icon', underText: msg('home'), onClick: onSwitchView('mainmenu')"></awesomebuttonlink>
       <awesomebuttonlink params="awesomeClass: 'fa fa-key fa-3x icon', underText: msg('account'), onClick: onSwitchView('account')"></awesomebuttonlink>
-      <awesomebuttonlink params="awesomeClass: 'fa fa-money fa-3x icon', underText: msg('payments'), onClick: onSwitchView('payments')"></awesomebuttonlink>
-      <awesomebuttonlink params="awesomeClass: 'fa fa-shopping-basket fa-3x icon', underText: msg('basket'), onClick: onSwitchView('basket')"></awesomebuttonlink>
-      <awesomebuttonlink params="awesomeClass: 'material-icons md-48 icon', underText: msg('gunner'), onClick: onSwitchView('gunner'), materialIcon: 'face'"></awesomebuttonlink>
+      <awesomebuttonlink params="awesomeClass: 'fa fa-money fa-3x icon', underText: msg('payments'), onClick: onSwitchView('payments'), disabled: isNotLogged"></awesomebuttonlink>
+      <awesomebuttonlink params="awesomeClass: 'fa fa-shopping-basket fa-3x icon', underText: msg('basket'), onClick: onSwitchView('basket'), disabled: isNotLogged"></awesomebuttonlink>
+      <awesomebuttonlink params="awesomeClass: 'material-icons md-48 icon', underText: msg('gunner'), onClick: onSwitchView('gunner'), materialIcon: 'face', disabled: isNotLogged"></awesomebuttonlink>
     </div>
     <div id="game">
-      <casinoview params="currentView: viewController.currentView"></casinoview>
+      <casinoview params="controller: $root, currentView: viewController.currentView"></casinoview>
     </div>
   </div>
 

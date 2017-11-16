@@ -97,7 +97,14 @@ body {
     background-color: $color-complement-2;
     border-style: solid;
     border-color: $border-color;
+    align-items: center;
+}
 
+#mainGame {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .material-icons.md-18 { font-size: 18px; }
@@ -109,7 +116,11 @@ body {
   padding-right: 15px;
   padding-left: 15px;
   text-align: center;
+  color: $color-primary-1;
+}
 
+.upperMenuItem *[disabled] {
+  color: $color-primary-3;
 }
 
 .hvr-grow {
@@ -155,4 +166,70 @@ body {
 .footerStatusRowRight {
   padding: 2px 30px 5px 0px;
   float: right;
+}
+
+.accountLoginForm {
+  background: white;
+  width: 90%;
+  height: 80%;
+  box-shadow: 0px 0px 20px rgba(#000, .7);
+  font-family: lato;
+  position: relative;
+  color: #333;
+  border-radius: 10px;
+  margin: 0 auto;
+
+  header{
+    background: $color-secondary-2-0;
+    padding: 20px 20px;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    border-radius: 10px 10px 0 0;
+}
+  label{
+    margin-left: 20px;
+    display: inline-block;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+  input{
+    display: block;
+    width: 78%;
+    margin-left: 20px;
+    padding: 5px 20px;
+    font-size: 1em;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid #ccc;
+}
+  .help{
+    margin-left: 20px;
+    font-size: 0.8em;
+    color: #777;
+}
+  button{
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-family: inherit;
+    color: white;
+    background: $color-secondary-2-0;
+    outline: none;
+    border: none;
+    padding: 5px 15px;
+    font-size: 1.3em;
+    font-weight: 400;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px rgba(#333, 0.4);
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+    button:hover{
+      background: lighten(#FF3838, 5);
+    }
 }
