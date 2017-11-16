@@ -34,6 +34,14 @@ export class CasinoView extends Component {
       this.onChangeLoginForm = function() {
         this.loginFormActivated(!this.loginFormActivated())
       }
+
+      this.shouldShowLoginForm = ko.computed(() => {
+          return this.controller.isNotLogged() && this.loginFormActivated();
+      }, this);
+
+      this.shouldShowRegisterForm = ko.computed(() => {
+          return this.controller.isNotLogged() && !this.loginFormActivated();
+      }, this);
     }
 
   }

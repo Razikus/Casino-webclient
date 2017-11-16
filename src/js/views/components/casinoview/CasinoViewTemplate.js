@@ -9,7 +9,7 @@ export const template = {
         <span data-bind="text:currentView().name" id="mainGame"></span>
       <!-- /ko -->
       <!-- ko if: currentView().name == 'ACCOUNT' -->
-        <!-- ko if: controller.isNotLogged && loginFormActivated -->
+        <!-- ko if: shouldShowLoginForm -->
           <form data-bind="submit: doLogin" class="accountLoginForm">
               <header data-bind="text: msg('login')"></header>
               <label><span data-bind="text: msg('username')"></span> <span>*</span></label>
@@ -22,7 +22,7 @@ export const template = {
               <div data-bind="text: msg('clickHereIfYouWantToRegister'), click: onChangeLoginForm" class="help"></div>
           </form>
         <!-- /ko -->
-        <!-- ko if: controller.isNotLogged() && !loginFormActivated() -->
+        <!-- ko if: shouldShowRegisterForm -->
           <form data-bind="submit: doRegister" class="accountLoginForm">
               <header data-bind="text: msg('register')"></header>
               <label><span data-bind="text: msg('username')"></span> <span>*</span></label>
