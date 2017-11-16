@@ -1,6 +1,6 @@
 import { warn, info } from './logger/logger';
 import { AwesomeButtonLink } from './views/components/awesomeButtonLink/AwesomeButtonLink';
-import { CasinoView } from './views/components/casinoview/Casinoview';
+import { CasinoView } from './views/components/casinoview/CasinoView';
 
 export class ComponentsRegisterer {
   constructor() {
