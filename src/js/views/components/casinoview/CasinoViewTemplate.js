@@ -19,7 +19,7 @@ export const template = {
               <input type="password" data-bind="value: loginForm.password"></input>
               <div class="help">Use upper and lowercase lettes as well</div>
               <button data-bind="text: msg('login')" type="submit"></button>
-              <div data-bind="text: msg('clickHereIfYouWantTologin'), click: onChangeLoginForm" class="help"></div>
+              <div data-bind="text: msg('clickHereIfYouWantToRegister'), click: onChangeLoginForm" class="help"></div>
           </form>
         <!-- /ko -->
         <!-- ko if: controller.isNotLogged() && !loginFormActivated() -->
@@ -35,7 +35,7 @@ export const template = {
               <input type="email" data-bind="value: registerForm.email"></input>
               <div class="help">Use upper and lowercase lettes as well</div>
               <button data-bind="text: msg('register')" type="submit"></button>
-              <div data-bind="text: msg('clickHereIfYouWantToRegister'), click: onChangeLoginForm" class="help"></div>
+              <div data-bind="text: msg('clickHereIfYouWantToLogin'), click: onChangeLoginForm" class="help"></div>
           </form>
         <!-- /ko -->
       <!-- /ko -->

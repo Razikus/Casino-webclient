@@ -11,7 +11,6 @@ export class CommunicationService {
   }
 
   tryRegister(nick, password, email) {
-    console.log(JSON.stringify(new RegisterAction(nick, password, email)));
     this.send(JSON.stringify(new RegisterAction(nick, password, email)));
   }
 
