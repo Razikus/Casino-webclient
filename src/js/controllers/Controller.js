@@ -18,7 +18,10 @@ export class Controller {
     this.socketHandler = new SocketHandler(this, config);
     this.socketHandler.initConnection();
 
-    this.isNotLogged = ko.observable(true);
+    this.state = ko.observable("NOTLOGGED");
+    this.isNotLogged = ko.computed(() => {
+        return this.state() == "NOTLOGGED";
+    }, this);
 
     this.connectionStatusClass = ko.pureComputed(function() {
       return this.connected() ? "fa fa-check-circle-o success" : 'fa fa-times-circle-o error';
