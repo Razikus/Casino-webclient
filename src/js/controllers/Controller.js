@@ -1,6 +1,7 @@
 import { SocketHandler } from '../communication/SocketHandler';
 import { CommunicationService } from '../communication/CommunicationService';
 import { MessageController } from './MessageController';
+import { ViewController } from './ViewController';
 import { MessageService } from '../config/msg';
 import { info, warn } from '../logger/logger';
 import { makDefaultInfoToast } from '../views/utils/toaster';
@@ -10,6 +11,7 @@ export class Controller {
   constructor(config, languageCode, optionalGetParameters) {
     this.messageService = new MessageService(languageCode);
     this.devService = new DevService(this);
+    this.viewController = new ViewController(this);
     this.messageController = new MessageController(this, this.messageService);
     this.socketConfig = config;
     this.connected = ko.observable(false);
@@ -24,21 +26,11 @@ export class Controller {
 
     this.communicationService = new CommunicationService(this.socketHandler, this);
 
-    this.onPaymentsItem = function() {
-      alert("Not implemented yet");
-    };
-    this.onGunnerItem = function() {
-      alert("Not implemented yet");
-    };
-    this.onBasketItem = function() {
-      alert("Not implemented yet");
-    };
-    this.onLoginItem = function() {
-      alert("Not implemented yet");
-    };
-    this.onHomeItem = function() {
-      alert("Not implemented yet");
-    };
+    this.onSwitchView = function(view) {
+      return (event) => {
+        this.viewController.switchView(view);
+      }
+    }
 
 
     this.subscribe("connected", (value) => {

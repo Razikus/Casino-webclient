@@ -1,5 +1,6 @@
 import { warn, info } from './logger/logger';
 import { AwesomeButtonLink } from './views/components/awesomeButtonLink/AwesomeButtonLink';
+import { CasinoView } from './views/components/casinoview/Casinoview';
 
 export class ComponentsRegisterer {
   constructor() {
@@ -8,6 +9,7 @@ export class ComponentsRegisterer {
 
   registerComponents() {
     this.registerAndAddComponent(new AwesomeButtonLink());
+    this.registerAndAddComponent(new CasinoView());
   }
 
   registerAndAddComponent(component) {
