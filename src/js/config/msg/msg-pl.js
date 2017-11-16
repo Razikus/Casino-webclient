@@ -13,4 +13,5 @@ export const msg = {
   "gunner" : "Rewolwer",
   "home" : "Główna",
   'REFRESHING' : 'Odświeżam...',
+  'TOKEN_IS_ACTIVATED' : 'Token jest już aktywowany.',
 }
