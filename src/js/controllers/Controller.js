@@ -18,6 +18,8 @@ export class Controller {
     this.socketHandler = new SocketHandler(this, config);
     this.socketHandler.initConnection();
 
+    this.balance = ko.observable(this.msg("notlogged"));
+
     this.state = ko.observable("NOTLOGGED");
     this.isNotLogged = ko.computed(() => {
         return this.state() == "NOTLOGGED";

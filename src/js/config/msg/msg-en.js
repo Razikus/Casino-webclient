@@ -24,4 +24,12 @@ export const msg = {
   'MAIL_WITH_NEXT_STEPS_HAS_BEEN_SENT_TO_YOUR_ADRESS' : 'Mail with next steps has been sended to your e-mail.',
   'SORRY_THERE_IS_AN_PROBLEM_WITH_THIS_ACTION_TRY_AGAIN_LATER' : 'There was a problem... Please try again later.',
   'PASSWORD_HAS_BEEN_CHANGED' : 'Password changed!',
+  "notlogged" : "Not logged",
+  "username" : "Username",
+  "password" : "Password",
+  "email" : "E-mail",
+  "register" : "Register",
+  "login" : "Login",
+  "clickHereIfYouWantToLogin" : "Click here if you want to login",
+  "clickHereIfYouWantToRegister" : "Click here if you want to register",
 }
