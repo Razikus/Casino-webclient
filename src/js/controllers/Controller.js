@@ -49,6 +49,12 @@ export class Controller {
       }
     });
 
+    this.accountInformation = {
+      nickname: "",
+      email: "",
+      activated: "",
+    }
+
   }
 
   // Delegated to WebSocket object- dont use this, have to use - this.controller
