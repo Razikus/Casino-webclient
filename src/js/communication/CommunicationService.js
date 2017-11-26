@@ -33,7 +33,6 @@ export class CommunicationService {
   tryActivatePassword(GETParameters) {
     if(GETParameters.token !== 'undefined' && GETParameters.email !== 'undefined') {
       if(GETParameters.token.length !== 0 && GETParameters.email.length !== 0) {
-        console.log(JSON.stringify(new PasswordChangeAction(GETParameters.email, GETParameters.token)))
         this.send(JSON.stringify(new PasswordChangeAction(GETParameters.email, GETParameters.token)));
       }
     }

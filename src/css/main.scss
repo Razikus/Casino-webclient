@@ -194,7 +194,14 @@ body {
     margin-bottom: 5px;
     position: relative;
 }
-
+  div{
+    margin-left: 20px;
+    display: inline-block;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    position: relative;
+    display: block;
+  }
   input{
     display: block;
     width: 78%;

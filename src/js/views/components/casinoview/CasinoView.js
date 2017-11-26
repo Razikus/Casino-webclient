@@ -27,6 +27,10 @@ export class CasinoView extends Component {
           return this.controller.isNotLogged() && this.accountCurrentView() == "PASSWORDCHANGE";
       }, this);
 
+      this.shouldShowAccountInformation = ko.computed(() => {
+          return !this.controller.isNotLogged();
+      }, this);
+
     }
 
   }

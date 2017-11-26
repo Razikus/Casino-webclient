@@ -18,6 +18,9 @@ export const template = {
         <!-- ko if: shouldShowPasswordChangeForm -->
           <passwordchangeform params="controller: controller, accountCurrentView: accountCurrentView"></passwordchangeform>
         <!-- /ko -->
+        <!-- ko if: shouldShowAccountInformation -->
+          <accountinformation params="controller: controller"></accountinformation>
+        <!-- /ko -->
       <!-- /ko -->
       <!-- ko if: currentView().name == 'PAYMENTS' -->
         <span data-bind="text:currentView().name" id="mainGame"></span>

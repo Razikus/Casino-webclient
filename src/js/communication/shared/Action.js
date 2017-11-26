@@ -18,7 +18,7 @@ export class RegisterAction extends Action {
     super(actionTypes.register);
     this.args = {
       login: login,
-      password: password,
+      password: sha256(password),
       email: email
     }
   }
@@ -29,7 +29,7 @@ export class LoginAction extends Action {
     super(actionTypes.login);
     this.args = {
       login: login,
-      password: password,
+      password: sha256(password),
     }
   }
 }
@@ -49,7 +49,7 @@ export class PasswordChangeRequestAction extends Action {
     super(actionTypes.passwordChangeRequest);
     this.args = {
       email: email,
-      newPassword: newPassword,
+      newPassword: sha256(newPassword),
     }
   }
 }
