@@ -32,4 +32,8 @@ export const msg = {
   "login" : "Login",
   "clickHereIfYouWantToLogin" : "Click here if you want to login",
   "clickHereIfYouWantToRegister" : "Click here if you want to register",
+  "clickHereIfYouWantToChangePassword" : "Click here if you want to change password",
+  "newPassword" : "New password",
+  "sendRequest" : "Send request",
+  "BAD_LOGIN_OR_PASSWORD" : "Bad login or password",
 }
