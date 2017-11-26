@@ -37,4 +37,7 @@ export const msg = {
   "sendRequest" : "Send request",
   "BAD_LOGIN_OR_PASSWORD" : "Bad login or password",
   "passwordChange" : "Password change",
+  "accountInformations" : "Account informations",
+  "nickname" : "Nickname",
+  "activated" : "Activated"
 }

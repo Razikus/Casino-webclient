@@ -50,9 +50,9 @@ export class Controller {
     });
 
     this.accountInformation = {
-      nickname: "",
-      email: "",
-      activated: "",
+      nickname: ko.observable(""),
+      email: ko.observable(""),
+      activated: ko.observable(""),
     }
 
   }

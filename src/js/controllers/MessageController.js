@@ -49,6 +49,7 @@ export class MessageController {
   }
 
   recognizeAction(action) {
+    console.log(action);
     if(action.type === "REFRESHUSERS") {
       this.controller.playersCount(action.args.players);
     } else if(action.type === "REFRESHMONEY") {
@@ -56,9 +57,9 @@ export class MessageController {
     } else if(action.type === "CHANGE_STATE") {
       this.controller.state(action.args.newState);
     } else if(action.type === "ACCOUNTINFORMATION") {
-      this.controller.accountInformation.nickname = action.args.nickname;
-      this.controller.accountInformation.email = action.args.email;
-      this.controller.accountInformation.activated = action.args.activated;
+      this.controller.accountInformation.nickname(action.args.nickname);
+      this.controller.accountInformation.email(action.args.email);
+      this.controller.accountInformation.activated( action.args.activated);
     }
   }
 }
