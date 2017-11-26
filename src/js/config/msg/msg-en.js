@@ -39,5 +39,6 @@ export const msg = {
   "passwordChange" : "Password change",
   "accountInformations" : "Account informations",
   "nickname" : "Nickname",
-  "activated" : "Activated"
+  "activated" : "Activated",
+  "balance" : "Balance"
 }
