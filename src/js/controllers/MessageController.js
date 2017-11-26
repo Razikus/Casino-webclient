@@ -49,7 +49,6 @@ export class MessageController {
   }
 
   recognizeAction(action) {
-    console.log(action);
     if(action.type === "REFRESHUSERS") {
       this.controller.playersCount(action.args.players);
     } else if(action.type === "REFRESHMONEY") {

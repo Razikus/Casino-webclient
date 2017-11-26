@@ -16,6 +16,20 @@ export class ViewController {
 
   switchView(newView) {
     this.currentView(this.getProperlyEnumFromCode(newView));
+    if(this.currentView().canvas) {
+      let mainCanvas = document.getElementById("mainGame");
+      let rendererOptions = {
+        antialiasing: false,
+        transparent: false,
+        resolution: window.devicePixelRatio,
+        autoResize: true,
+      }
+      let ratio = window.innerWidth / window.innerHeight;
+      let app = new PIXI.Application(window.innerWidth, window.innerHeight, {view: mainCanvas}, rendererOptions);
+      window.onresize = function(event) {
+          resize(app.renderer, ratio);
+      };
+    }
   }
 
    getProperlyEnumFromCode(enumCode) {
