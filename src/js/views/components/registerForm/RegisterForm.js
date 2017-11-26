@@ -11,9 +11,9 @@ export class RegisterForm extends Component {
       }
 
       this.registerForm = {
-        login: ko.observable("Login"),
-        password: ko.observable("Password"),
-        email: ko.observable("email"),
+        login: ko.observable(""),
+        password: ko.observable(""),
+        email: ko.observable(""),
       }
 
       this.onChangeLoginForm = function(state) {

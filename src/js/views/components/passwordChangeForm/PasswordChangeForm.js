@@ -11,8 +11,8 @@ export class PasswordChangeForm extends Component {
       }
 
       this.passwordChangeForm = {
-        email: ko.observable("email"),
-        newPassword: ko.observable("new password"),
+        email: ko.observable(""),
+        newPassword: ko.observable(""),
       }
 
       this.onChangeLoginForm = function(state) {

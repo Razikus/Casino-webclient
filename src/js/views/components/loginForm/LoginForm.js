@@ -10,8 +10,8 @@ export class LoginForm extends Component {
         return this.controller.msg(name);
       }
       this.loginForm = {
-        login: ko.observable("Login"),
-        password: ko.observable("Password"),
+        login: ko.observable(""),
+        password: ko.observable(""),
       }
       this.doLogin = function() {
         this.controller.communicationService.tryLogin(this.loginForm.login(), this.loginForm.password());
