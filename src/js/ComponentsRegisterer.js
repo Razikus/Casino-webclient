@@ -3,6 +3,7 @@ import { AwesomeButtonLink } from './views/components/awesomeButtonLink/AwesomeB
 import { CasinoView } from './views/components/casinoview/CasinoView';
 import { LoginForm } from './views/components/loginForm/LoginForm';
 import { RegisterForm } from './views/components/registerForm/RegisterForm';
+import { PasswordChangeForm } from './views/components/passwordChangeForm/PasswordChangeForm';
 
 export class ComponentsRegisterer {
   constructor() {
@@ -14,6 +15,7 @@ export class ComponentsRegisterer {
     this.registerAndAddComponent(new CasinoView());
     this.registerAndAddComponent(new LoginForm());
     this.registerAndAddComponent(new RegisterForm());
+    this.registerAndAddComponent(new PasswordChangeForm());
   }
 
   registerAndAddComponent(component) {

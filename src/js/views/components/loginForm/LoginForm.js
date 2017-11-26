@@ -4,22 +4,23 @@ export class LoginForm extends Component {
   constructor() {
     super("loginform", require('./LoginFormTemplate').template.html);
     this.viewModel = function(params) {
-      console.log(params);
       this.controller = params.controller;
-      this.loginFormActivated = params.loginFormActivated;
+      this.accountCurrentView = params.accountCurrentView;
       this.msg = function(name) {
         return this.controller.msg(name);
       }
       this.loginForm = {
         login: ko.observable("Login"),
-          password: ko.observable("Password"),
+        password: ko.observable("Password"),
       }
       this.doLogin = function() {
         this.controller.communicationService.tryLogin(this.loginForm.login(), this.loginForm.password());
       }
 
-      this.onChangeLoginForm = function() {
-        this.loginFormActivated(!this.loginFormActivated())
+      this.onChangeLoginForm = function(state) {
+        return function() {
+          this.accountCurrentView(state);
+        }
       }
 
     }

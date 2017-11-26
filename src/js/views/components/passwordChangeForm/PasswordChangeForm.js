@@ -1,8 +1,8 @@
 import { Component } from '../Component';
 
-export class RegisterForm extends Component {
+export class PasswordChangeForm extends Component {
   constructor() {
-    super("registerform", require('./RegisterFormTemplate').template.html);
+    super("passwordchangeform", require('./PasswordChangeFormTemplate').template.html);
     this.viewModel = function(params) {
       this.controller = params.controller;
       this.accountCurrentView = params.accountCurrentView;
@@ -10,10 +10,9 @@ export class RegisterForm extends Component {
         return this.controller.msg(name);
       }
 
-      this.registerForm = {
-        login: ko.observable("Login"),
-        password: ko.observable("Password"),
+      this.passwordChangeForm = {
         email: ko.observable("email"),
+        newPassword: ko.observable("new password"),
       }
 
       this.onChangeLoginForm = function(state) {
@@ -22,8 +21,8 @@ export class RegisterForm extends Component {
         }
       }
 
-      this.doRegister = function() {
-        this.controller.communicationService.tryRegister(this.registerForm.login(), this.registerForm.password(), this.registerForm.email());
+      this.doPasswordChange = function() {
+        this.controller.communicationService.tryChangePassword(this.passwordChangeForm.email(), this.passwordChangeForm.newPassword());
       }
 
     }

@@ -13,15 +13,20 @@ export class CasinoView extends Component {
         return this.controller.msg(name);
       }
 
-      this.loginFormActivated = ko.observable(true);
+      this.accountCurrentView = ko.observable("LOGIN");
 
       this.shouldShowLoginForm = ko.computed(() => {
-          return this.controller.isNotLogged() && this.loginFormActivated();
+          return this.controller.isNotLogged() && this.accountCurrentView() == "LOGIN";
       }, this);
 
       this.shouldShowRegisterForm = ko.computed(() => {
-          return this.controller.isNotLogged() && !this.loginFormActivated();
+          return this.controller.isNotLogged() && this.accountCurrentView() == "REGISTER";
       }, this);
+
+      this.shouldShowPasswordChangeForm = ko.computed(() => {
+          return this.controller.isNotLogged() && this.accountCurrentView() == "PASSWORDCHANGE";
+      }, this);
+
     }
 
   }

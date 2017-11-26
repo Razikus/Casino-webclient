@@ -12,7 +12,7 @@ export const template = {
         <input type="email" data-bind="value: registerForm.email"></input>
         <div class="help">Use upper and lowercase lettes as well</div>
         <button data-bind="text: msg('register')" type="submit"></button>
-        <div data-bind="text: msg('clickHereIfYouWantToLogin'), click: onChangeLoginForm" class="help"></div>
+        <div data-bind="text: msg('clickHereIfYouWantToLogin'), click: onChangeLoginForm('LOGIN')" class="help"></div>
     </form>
   `,
 }

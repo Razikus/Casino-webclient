@@ -10,10 +10,13 @@ export const template = {
       <!-- /ko -->
       <!-- ko if: currentView().name == 'ACCOUNT' -->
         <!-- ko if: shouldShowLoginForm -->
-          <loginform params="controller: controller, loginFormActivated: loginFormActivated"></loginform>
+          <loginform params="controller: controller, accountCurrentView: accountCurrentView"></loginform>
         <!-- /ko -->
         <!-- ko if: shouldShowRegisterForm -->
-          <registerform params="controller: controller, loginFormActivated: loginFormActivated"></registerform>
+          <registerform params="controller: controller, accountCurrentView: accountCurrentView"></registerform>
+        <!-- /ko -->
+        <!-- ko if: shouldShowPasswordChangeForm -->
+          <passwordchangeform params="controller: controller, accountCurrentView: accountCurrentView"></passwordchangeform>
         <!-- /ko -->
       <!-- /ko -->
       <!-- ko if: currentView().name == 'PAYMENTS' -->

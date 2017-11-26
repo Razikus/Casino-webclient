@@ -9,7 +9,8 @@ export const template = {
         <input type="password" data-bind="value: loginForm.password"></input>
         <div class="help">Use upper and lowercase lettes as well</div>
         <button data-bind="text: msg('login')" type="submit"></button>
-        <div data-bind="text: msg('clickHereIfYouWantToRegister'), click: onChangeLoginForm" class="help"></div>
+        <div data-bind="text: msg('clickHereIfYouWantToRegister'), click: onChangeLoginForm('REGISTER')" class="help"></div>
+        <div data-bind="text: msg('clickHereIfYouWantToChangePassword'), click: onChangeLoginForm('PASSWORDCHANGE')" class="help"></div>
     </form>
   `,
 }
