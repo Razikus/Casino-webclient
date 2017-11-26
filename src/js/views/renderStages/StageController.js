@@ -1,5 +1,10 @@
+import { Gunner } from './stages/Gunner';
+import { Basket } from './stages/Basket';
+
 export const renderGlobal = {
   currentApp: null,
+  currentGame: null,
+  currentStage: null,
   loader: PIXI.loader,
 }
 
@@ -24,9 +29,15 @@ export class StageController {
       }
       renderGlobal.currentApp = this.initApplication();
 
+      if(newStage.name == "GUNNER") {
+        renderGlobal.currentGame = new Gunner(renderGlobal.currentApp, this.controller);
+      } else if(newStage.name == "BASKET") {
+        renderGlobal.currentGame = new Basket(renderGlobal.currentApp, this.controller);
+      }
+
       //renderGlobal.currentApp.addChild(newStage);
     } else {
-      if(renderGlobal.currentApp !== null) {
+      if(renderGlobal.currentApp != null) {
         this.clearApp();
       }
     }

@@ -32,7 +32,6 @@ export class CasinoView extends Component {
       }, this);
 
       this.afterRenderCanvas = function() {
-        console.log("LEOLEO");
         self.controller.viewController.canvasInitialized(true);
       }
 
