@@ -1,7 +1,14 @@
 export const template = {
   html: `
     <!-- ko if: shouldShowCanvas -->
-      <canvas id="mainGame"></canvas>
+        <!-- ko if: currentView().name == 'GUNNER' -->
+          <canvas id="mainGame"></canvas>
+          <span hidden="true" data-bind="template: { afterRender: afterRenderCanvas }"></span>
+        <!-- /ko -->
+        <!-- ko if: currentView().name == 'BASKET' -->
+          <canvas id="mainGame"></canvas>
+          <span hidden="true" data-bind="template: { afterRender: afterRenderCanvas }"></span>
+        <!-- /ko -->
     <!-- /ko -->
 
     <!-- ko ifnot: shouldShowCanvas -->

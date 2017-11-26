@@ -1,3 +1,5 @@
+import { StageController } from '../views/renderStages/StageController';
+
 export const views = {
   MAINMENU: {name: "MAINMENU", canvas: false},
   ACCOUNT: {name: "ACCOUNT", canvas: false},
@@ -6,30 +8,17 @@ export const views = {
   GUNNER: {name: "GUNNER", canvas: true},
 }
 
-
-
 export class ViewController {
   constructor(mainController) {
     this.mainController = mainController;
     this.currentView = ko.observable(views.MAINMENU);
+    this.canvasInitialized = ko.observable(false);
+    this.stageController = new StageController(mainController, this);
   }
 
   switchView(newView) {
+    this.canvasInitialized(false);
     this.currentView(this.getProperlyEnumFromCode(newView));
-    if(this.currentView().canvas) {
-      let mainCanvas = document.getElementById("mainGame");
-      let rendererOptions = {
-        antialiasing: false,
-        transparent: false,
-        resolution: window.devicePixelRatio,
-        autoResize: true,
-      }
-      let ratio = window.innerWidth / window.innerHeight;
-      let app = new PIXI.Application(window.innerWidth, window.innerHeight, {view: mainCanvas}, rendererOptions);
-      window.onresize = function(event) {
-          resize(app.renderer, ratio);
-      };
-    }
   }
 
    getProperlyEnumFromCode(enumCode) {
