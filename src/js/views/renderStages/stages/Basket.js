@@ -8,4 +8,8 @@ export class Basket {
 
     info("Basket initialized");
   }
+
+  getStage() {
+
+  }
 }

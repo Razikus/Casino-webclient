@@ -31,6 +31,8 @@ export class StageController {
 
       if(newStage.name == "GUNNER") {
         renderGlobal.currentGame = new Gunner(renderGlobal.currentApp, this.controller);
+        renderGlobal.currentStage = renderGlobal.currentGame.getStage();
+        renderGlobal.currentApp.stage.addChild(renderGlobal.currentStage);
       } else if(newStage.name == "BASKET") {
         renderGlobal.currentGame = new Basket(renderGlobal.currentApp, this.controller);
       }
@@ -41,18 +43,6 @@ export class StageController {
         this.clearApp();
       }
     }
-  }
-
-  getCenterOfWindow() {
-    return [this.getRendererWidth() / 2, this.getRendererHeight() / 2]
-  }
-
-   getRendererWidth() {
-    return renderGlobal.currentApp.renderer.width;
-  }
-
-   getRendererHeight() {
-    return renderGlobal.currentApp.renderer.height;
   }
 
   clearApp() {
@@ -72,9 +62,10 @@ export class StageController {
     }
     let ratio = window.innerWidth / window.innerHeight;
     let app = new PIXI.Application(window.innerWidth, window.innerHeight, {view: mainCanvas}, rendererOptions);
-    window.onresize = function(event) {
-        this.resize(app.renderer, ratio);
-    };
+    let self = this;
+    //window.onresize = function(event) {
+    //    self.resize(app.renderer, ratio);
+    //};
     return app;
   }
 
@@ -90,4 +81,16 @@ export class StageController {
       renderer.view.style.height = h + 'px';
   }
 
+}
+
+export function getCenterOfWindow() {
+  return [getRendererWidth() / 2, getRendererHeight() / 2]
+}
+
+ export function getRendererWidth() {
+  return renderGlobal.currentApp.renderer.width;
+}
+
+ export function getRendererHeight() {
+  return renderGlobal.currentApp.renderer.height;
 }
