@@ -19,6 +19,11 @@ export class StageController {
   }
 
   switchStage(canvasInitialized, newStage) {
+    if(newStage && renderGlobal.currentStage && renderGlobal.currentStage.sounds) {
+      renderGlobal.currentStage.sounds.forEach(function(value, index, arr) {
+          value.stop();
+        });
+    }
     if(!canvasInitialized) {
       this.clearApp();
       return;

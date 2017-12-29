@@ -19,8 +19,8 @@ export class Gunner {
   constructor(app, controller) {
     this.app = app;
     this.controller = controller;
-    this.entrySound = getEntrySounds();
-    this.entrySound.once('load', function() {
+    this.sounds = getSounds();
+    this.sounds.once('load', function() {
       info("Gunner sounds initialized");
     })
     info("Gunner game initialized");
@@ -28,7 +28,8 @@ export class Gunner {
 
   getStage() {
     let stage = new PIXI.Container();
-    this.entrySound.play();
+    stage.sounds = [this.sounds];
+    this.sounds.play('entry');
     let test = createSmallerText("Gunner", 100, 100);
 
     stage.addChild(test);
@@ -38,8 +39,14 @@ export class Gunner {
 
 
 
-function getEntrySounds() {
-    return new Howl({ src: ["assets/sounds/gunner/gunner.mp3"] });
+function getSounds() {
+    return new Howl({
+      src: ["assets/sounds/gunner/gunner.mp3"],
+      sprite: {
+        entry: [0, 13900],
+        lose: [14000, 18700],
+        win: [18700, 24200]
+      }});
   }
 
 function createSmallerText(text, x, y) {
