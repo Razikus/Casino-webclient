@@ -19,8 +19,8 @@ export class Gunner {
   constructor(app, controller) {
     this.app = app;
     this.controller = controller;
-    let entrySound = getEntrySounds();
-    entrySound.once('load', function() {
+    this.entrySound = getEntrySounds();
+    this.entrySound.once('load', function() {
       info("Gunner sounds initialized");
     })
     info("Gunner game initialized");
@@ -28,7 +28,7 @@ export class Gunner {
 
   getStage() {
     let stage = new PIXI.Container();
-    getEntrySounds().play();
+    this.entrySound.play();
     let test = createSmallerText("Gunner", 100, 100);
 
     stage.addChild(test);
