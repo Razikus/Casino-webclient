@@ -10,6 +10,7 @@ export class Basket {
   }
 
   getStage() {
-
+      let stage = new PIXI.Container();
+      return stage;
   }
 }
