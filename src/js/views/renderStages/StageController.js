@@ -18,6 +18,10 @@ export class StageController {
     });
   }
 
+  notifyAbout(obj) {
+    renderGlobal.currentGame.notify(obj);
+  }
+
   switchStage(canvasInitialized, newStage) {
     if(newStage && renderGlobal.currentStage && renderGlobal.currentStage.sounds) {
       renderGlobal.currentStage.sounds.forEach(function(value, index, arr) {
@@ -66,11 +70,8 @@ export class StageController {
       autoResize: true,
     }
     let ratio = window.innerWidth / window.innerHeight;
-    let app = new PIXI.Application(window.innerWidth, window.innerHeight, {view: mainCanvas}, rendererOptions);
+    let app = new PIXI.Application(mainCanvas.offsetWidth, mainCanvas.offsetHeight, {view: mainCanvas}, rendererOptions);
     let self = this;
-    //window.onresize = function(event) {
-    //    self.resize(app.renderer, ratio);
-    //};
     return app;
   }
 

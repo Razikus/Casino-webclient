@@ -21,6 +21,7 @@ export class MessageController {
 
   recognizeMessage(event) {
     let obj = JSON.parse(event.data);
+    console.log(obj);
     if(obj.className !== 'undefined') {
       this.recognizeClass(obj);
     } else {
@@ -59,6 +60,8 @@ export class MessageController {
       this.controller.accountInformation.nickname(action.args.nickname);
       this.controller.accountInformation.email(action.args.email);
       this.controller.accountInformation.activated( action.args.activated);
+    } else if(action.type === "GUN_FIRE_RESPONSE") {
+      this.controller.viewController.stageController.notifyAbout(action);
     }
   }
 }

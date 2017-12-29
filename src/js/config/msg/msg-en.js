@@ -40,5 +40,9 @@ export const msg = {
   "accountInformations" : "Account informations",
   "nickname" : "Nickname",
   "activated" : "Activated",
-  "balance" : "Balance"
+  "balance" : "Balance",
+  "Win" : "Win!",
+  "winmuch" : "Ammount of win",
+  "Lose" : "Lose :(",
+  "tryagain" : "Try again!"
 }
