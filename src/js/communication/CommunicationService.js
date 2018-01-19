@@ -1,4 +1,4 @@
-import { Action, LoginAction, RegisterAction, ActivateAction, WalletAction, PasswordChangeRequestAction, PasswordChangeAction, GunfireAction } from './shared/Action';
+import { Action, LoginAction, BasketAction, RegisterAction, ActivateAction, WalletAction, PasswordChangeRequestAction, PasswordChangeAction, GunfireAction } from './shared/Action';
 
 export class CommunicationService {
   constructor(socketHandler, controller) {
@@ -24,6 +24,10 @@ export class CommunicationService {
 
   playGunner(bid) {
     this.send(JSON.stringify(new GunfireAction(bid)));
+  }
+
+  playBasket() {
+    this.send(JSON.stringify(new BasketAction()));
   }
 
   tryActivate(GETParameters) {

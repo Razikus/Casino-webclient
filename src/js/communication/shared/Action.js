@@ -5,6 +5,7 @@ export const actionTypes = {
   passwordChangeRequest: "PASSWORDCHANGEREQUEST",
   passwordChange: "PASSWORDCHANGE",
   gunfire: "GUNFIRE",
+  basket: "BASKET",
 }
 
 export class Action {
@@ -69,6 +70,15 @@ export class GunfireAction extends Action {
     super(actionTypes.gunfire);
     this.args = {
       bid: bid,
+    }
+  }
+}
+
+export class BasketAction extends Action {
+  constructor() {
+    super(actionTypes.basket);
+    this.args = {
+      basketType: "Basic",
     }
   }
 }

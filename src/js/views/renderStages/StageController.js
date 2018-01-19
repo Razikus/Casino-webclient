@@ -44,6 +44,8 @@ export class StageController {
         renderGlobal.currentApp.stage.addChild(renderGlobal.currentStage);
       } else if(newStage.name == "BASKET") {
         renderGlobal.currentGame = new Basket(renderGlobal.currentApp, this.controller);
+        renderGlobal.currentStage = renderGlobal.currentGame.getStage();
+        renderGlobal.currentApp.stage.addChild(renderGlobal.currentStage);
       }
 
       //renderGlobal.currentApp.addChild(newStage);
