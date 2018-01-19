@@ -55,6 +55,16 @@ export class Controller {
       activated: ko.observable(""),
     }
 
+    this.basketInformation = {
+      basketCap: ko.observable("..."),
+      basketBid: ko.observable("..."),
+      basketNow: ko.observable("..."),
+    }
+
+    this.basketConcatedInfo = ko.pureComputed(function() {
+      return this.basketInformation.basketNow() + "/" + this.basketInformation.basketCap() + ": " + this.basketInformation.basketBid();
+    }, this);
+
   }
 
   // Delegated to WebSocket object- dont use this, have to use - this.controller

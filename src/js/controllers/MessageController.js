@@ -62,6 +62,10 @@ export class MessageController {
       this.controller.accountInformation.activated( action.args.activated);
     } else if(action.type === "GUN_FIRE_RESPONSE") {
       this.controller.viewController.stageController.notifyAbout(action);
+    } else if(action.type === "BASKETINFORMATION") {
+      this.controller.basketInformation.basketCap(action.args.basketCap);
+      this.controller.basketInformation.basketBid(action.args.basketBid);
+      this.controller.basketInformation.basketNow(action.args.basketNow);
     }
   }
 }
