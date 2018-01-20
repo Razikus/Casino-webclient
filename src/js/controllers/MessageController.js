@@ -53,7 +53,7 @@ export class MessageController {
     if(action.type === "REFRESHUSERS") {
       this.controller.playersCount(action.args.players);
     } else if(action.type === "REFRESHMONEY") {
-      this.controller.balance(action.args.money);
+      this.controller.balance(Number(action.args.money).toFixed(2));
     } else if(action.type === "CHANGE_STATE") {
       this.controller.state(action.args.newState);
     } else if(action.type === "ACCOUNTINFORMATION") {
