@@ -21,7 +21,7 @@ export class MessageController {
 
   recognizeMessage(event) {
     let obj = JSON.parse(event.data);
-    console.log(obj);
+    // console.log(obj);
     if(obj.className !== 'undefined') {
       this.recognizeClass(obj);
     } else {
