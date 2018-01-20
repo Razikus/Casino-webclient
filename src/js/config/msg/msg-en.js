@@ -44,5 +44,6 @@ export const msg = {
   "Win" : "Win!",
   "winmuch" : "Ammount of win",
   "Lose" : "Lose :(",
-  "tryagain" : "Try again!"
+  "tryagain" : "Try again!",
+  "SORRY YOU DONT HAVE ENOUGH MONEY CHARGE YOURSELF!" : "Sorry, you don't have money for this action."
 }
