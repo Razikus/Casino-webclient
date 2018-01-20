@@ -30,7 +30,7 @@ export const template = {
         <!-- /ko -->
       <!-- /ko -->
       <!-- ko if: currentView().name == 'PAYMENTS' -->
-        <span data-bind="text:currentView().name" id="mainGame"></span>
+        <span data-bind="text:'PAYMENTS ARE OFF'" id="mainGame"></span>
       <!-- /ko -->
     <!-- /ko -->
   `,

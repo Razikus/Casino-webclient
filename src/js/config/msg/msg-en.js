@@ -1,5 +1,5 @@
 export const msg = {
-  connected: "Connected",
+  "connected": "Connected",
   "connected-text": "Successfully connected to casino, good luck!",
   "ERROR": "Error",
   "EMAIL_OR_LOGIN_EXISTS" : "Email or login exists",
@@ -45,5 +45,5 @@ export const msg = {
   "winmuch" : "Ammount of win",
   "Lose" : "Lose :(",
   "tryagain" : "Try again!",
-  "SORRY YOU DONT HAVE ENOUGH MONEY CHARGE YOURSELF!" : "Sorry, you don't have money for this action."
+  "SORRY YOU DONT HAVE ENOUGH MONEY CHARGE YOURSELF!" : "Sorry, you don't have money for this action.",
 }

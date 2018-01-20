@@ -11,7 +11,7 @@ export const views = {
 export class ViewController {
   constructor(mainController) {
     this.mainController = mainController;
-    this.currentView = ko.observable(views.MAINMENU);
+    this.currentView = ko.observable(views.ACCOUNT);
     this.canvasInitialized = ko.observable(false);
     this.stageController = new StageController(mainController, this);
   }
